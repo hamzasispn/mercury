@@ -129,11 +129,11 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back")
   if (view === "front") {
     const frontText = `
       <g font-family="${kit.fontFamily}" text-anchor="middle">
-        <text x="500" y="450" font-size="40" fill="${kit.accentColor}" font-weight="${kit.fontWeight}">
+        <text x="500" y="470" font-size="40" fill="${kit.accentColor}" font-weight="${kit.fontWeight}">
           ${kit.name}
         </text>
 
-        <text x="500" y="600" font-size="${kit.numberSize}" fill="${kit.accentColor}" 
+        <text x="500" y="650" font-size="${kit.numberSize}" fill="${kit.accentColor}" 
           font-weight="bold" stroke="${kit.secondaryColor}" stroke-width="3">
           ${kit.number.toString().padStart(2, "0")}
         </text>
