@@ -133,7 +133,7 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back")
           ${kit.name}
         </text>
 
-        <text x="500" y="420" font-size="${kit.numberSize}" fill="${kit.accentColor}" 
+        <text x="500" y="600" font-size="${kit.numberSize}" fill="${kit.accentColor}" 
           font-weight="bold" stroke="${kit.secondaryColor}" stroke-width="3">
           ${kit.number.toString().padStart(2, "0")}
         </text>
