@@ -150,6 +150,11 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back")
           font-style="italic" font-weight="${kit.fontWeight}">
           ${kit.companyName}
         </text>
+
+        <text x="500" y="650" font-size="270px" fill="${kit.accentColor}" 
+          font-weight="bold" stroke="${kit.secondaryColor}" stroke-width="3">
+          ${kit.number.toString().padStart(2, "0")}
+        </text>
       </g>
     `
     svg = svg.replace(closeTag, `${backText}${closeTag}`)
