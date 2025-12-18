@@ -1,11 +1,13 @@
 import type { KitCustomization } from "./jersey-customizer"
+import Logo from "@/public/logo.png"
+
+// Helper to extract the 'd' attribute of the cls-2 path
 
 function extractCls2Path(svg: string): string | null {
   const match = svg.match(/<path[^>]*class="cls-2"[^>]*d="([^"]+)"/)
   return match ? match[1] : null
 }
 
-const fontFamily = "Arial, sans-serif"
 
 const FRONT_SVG_BASE = `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_5" data-name="Layer 5" viewBox="0 0 1000 1000">
   <defs>
@@ -129,8 +131,8 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back",
   // Front text (Name + Number)
   if (view === "front") {
     const frontText = `
-      <g font-family="${fontFamily}" text-anchor="middle">
-        <text x="500" y="400" font-size="24" fill="${kit.accentColor}" 
+      <g font-family="${kit.fontFamily}" text-anchor="middle">
+        <text x="500" y="500" font-size="24" fill="${kit.accentColor}" 
           font-style="italic" font-weight="${kit.fontWeight}">
           ${kit.companyName}
         </text>
@@ -138,26 +140,35 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back",
           ${kit.name}
         </text>
 
-           <!-- SIZE BADGE (Bottom Left) -->
-    <g transform="translate(250, 720)">
-      <rect 
-        x="0" y="0"
-        rx="14" ry="14"
-        width="110" height="44"
-        fill="${kit.accentColor}"
-        stroke="${kit.accentColor}"
-        stroke-width="2"
-        opacity="0.95"
-      />
-      <text 
-        x="55" y="22"
-        font-size="20"
-        fill="${kit.primaryColor}"
-        font-weight="bold"
-        dominant-baseline="middle">
-        ${size}
-      </text>
-    </g>
+      <image 
+  href="${Logo.src}"
+   x="400" y="370"
+width="200"
+height="55"
+
+  preserveAspectRatio="xMidYMid slice"
+/>
+
+        
+
+          <!-- SIZE BADGE (CHECKBOX STYLE) -->
+        <g transform="translate(240, 720)" font-family="${kit.fontFamily}">
+          <rect x="0" y="0" width="120" height="34" rx="6"
+            fill="#f5f5f5" stroke="#222" stroke-width="1.5" />
+          <rect x="8" y="7" width="20" height="20" rx="3"
+            fill="none" stroke="#222" stroke-width="1.5" />
+          <path d="M13 18 l4 4 l8 -9"
+            fill="none" stroke="#222"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+          <text x="72" y="22" font-size="16"
+            fill="#222" font-weight="bold"
+            dominant-baseline="middle"
+            text-anchor="middle">
+            ${size}
+          </text>
+        </g>
 
         <text x="500" y="650" font-size="${kit.numberSize}" fill="${kit.accentColor}" 
           font-weight="bold" stroke="${kit.secondaryColor}" stroke-width="3">
@@ -174,15 +185,22 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back",
 
   // Back text
   if (view === "back" && kit.companyName) {
-  const backText = `
-  <g font-family="${fontFamily}" text-anchor="middle">
+    const backText = `
+  <g font-family="${kit.fontFamily}" text-anchor="middle">
 
     <!-- Company Name -->
     <text x="500" y="295" font-size="24" fill="${kit.accentColor}" 
       font-style="italic" font-weight="${kit.fontWeight}">
       ${kit.companyName}
     </text>
+      <image 
+  href="${Logo.src}"
+   x="400" y="330"
+width="200"
+height="55"
 
+  preserveAspectRatio="xMidYMid slice"
+/>
  
 
     <!-- Jersey Number -->
