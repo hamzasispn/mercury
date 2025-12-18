@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { generateJerseySVG } from "./svg-templates"
+import Image from "next/image"
+import Logo from "@/public/icon-light-32x32.png"
 
 interface JerseyPreviewUnifiedProps {
   customization: any
@@ -12,12 +14,14 @@ export default function JerseyPreviewUnified({ customization }: JerseyPreviewUni
   const [frontSvg, setFrontSvg] = useState("")
   const [backSvg, setBackSvg] = useState("")
 
+  console.log("Customization in JerseyPreviewUnified:", customization)
+
   const currentKit = customization.activeKit === "home" ? customization.homeKit : customization.awayKit
   const kitLabel = customization.activeKit === "home" ? "HOME KIT" : "AWAY KIT"
 
   useEffect(() => {
-    setFrontSvg(generateJerseySVG(currentKit, "front"))
-    setBackSvg(generateJerseySVG(currentKit, "back"))
+    setFrontSvg(generateJerseySVG(currentKit, "front", customization.size))
+    setBackSvg(generateJerseySVG(currentKit, "back", customization.size))
   }, [currentKit])
 
   return (

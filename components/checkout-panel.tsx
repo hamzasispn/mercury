@@ -1,25 +1,25 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Loader2 } from "lucide-react"
+import { Loader2, CheckCircle2 } from "lucide-react"
 import { generateJerseySVG } from "./svg-templates"
 
 interface CheckoutPanelProps {
   customization: any
-  onCheckout: (formData: any) => Promise<void>
+  onCheckout?: (formData: any) => Promise<void>
 }
 
-const PRICE_PER_SET = 99.99 // Both kits
+const PRICE_PER_SET = 99.99
 
 export default function CheckoutPanel({ customization, onCheckout }: CheckoutPanelProps) {
   const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -37,10 +37,46 @@ export default function CheckoutPanel({ customization, onCheckout }: CheckoutPan
     setLoading(true)
 
     try {
-      await onCheckout(formData)
+      const response = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          customization,
+          formData,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setSuccess(true)
+        await onCheckout(formData)
+      } else {
+        alert(data.error || "Failed to process order")
+      }
+    } catch (error) {
+      console.error("Checkout error:", error)
+      alert("An error occurred. Please try again.")
     } finally {
       setLoading(false)
     }
+  }
+
+  if (success) {
+    return (
+      <Card className="bg-slate-800/50 backdrop-blur-sm border-slate-700 p-12 text-center">
+        <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
+        <h2 className="text-2xl font-bold text-white mb-2">Order Placed Successfully!</h2>
+        <p className="text-gray-400 mb-6">
+          We've sent a confirmation email to <strong className="text-white">{formData.email}</strong>
+        </p>
+        <p className="text-sm text-gray-500">
+          Your custom jerseys will be ready in 2-3 weeks. Check your email for order details and tracking information.
+        </p>
+      </Card>
+    )
   }
 
   return (
@@ -280,15 +316,15 @@ export default function CheckoutPanel({ customization, onCheckout }: CheckoutPan
               {loading ? (
                 <>
                   <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Processing Payment...
+                  Processing Order...
                 </>
               ) : (
-                `Pay $${(total + 10).toFixed(2)} with PayPal`
+                `Place Order`
               )}
             </Button>
 
             <p className="text-xs text-center text-gray-400 mt-2">
-              You will be redirected to PayPal to complete your payment securely
+              You will receive an order confirmation email after placing your order
             </p>
           </form>
         </Card>

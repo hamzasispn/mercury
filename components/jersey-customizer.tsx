@@ -23,7 +23,7 @@ export interface KitCustomization {
   materialImage: string | null
 }
 
-interface CustomizationState {
+export interface CustomizationState {
   homeKit: KitCustomization
   awayKit: KitCustomization
   size: "YS/YM" | "YL/YXL" | "S/M" | "L/XL" | "2XL/3XL"
@@ -124,8 +124,8 @@ export default function JerseyCustomizer() {
         throw new Error("Failed to create order")
       }
 
-      const { orderId, paypalLink } = await response.json()
-      window.location.href = paypalLink
+      // const { orderId, paypalLink } = await response.json()
+      // window.location.href = paypalLink
     } catch (error) {
       toast.error("Failed to process checkout")
       console.error(error)

@@ -83,7 +83,7 @@ const BACK_SVG_BASE = `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_5" data
   </g>
 </svg>`
 
-export function generateJerseySVG(kit: KitCustomization, view: "front" | "back"): string {
+export function generateJerseySVG(kit: KitCustomization, view: "front" | "back", size: string): string {
   let baseSvg = view === "front" ? FRONT_SVG_BASE : BACK_SVG_BASE
 
   // Replace jersey colors
@@ -129,11 +129,40 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back")
   if (view === "front") {
     const frontText = `
       <g font-family="${kit.fontFamily}" text-anchor="middle">
+        <text x="500" y="400" font-size="24" fill="${kit.accentColor}" 
+          font-style="italic" font-weight="${kit.fontWeight}">
+          ${kit.companyName}
+        </text>
         <text x="500" y="470" font-size="40" fill="${kit.accentColor}" font-weight="${kit.fontWeight}">
           ${kit.name}
         </text>
 
+           <!-- SIZE BADGE (Bottom Left) -->
+    <g transform="translate(250, 720)">
+      <rect 
+        x="0" y="0"
+        rx="14" ry="14"
+        width="110" height="44"
+        fill="${kit.accentColor}"
+        stroke="${kit.accentColor}"
+        stroke-width="2"
+        opacity="0.95"
+      />
+      <text 
+        x="55" y="22"
+        font-size="20"
+        fill="${kit.primaryColor}"
+        font-weight="bold"
+        dominant-baseline="middle">
+        ${size}
+      </text>
+    </g>
+
         <text x="500" y="650" font-size="${kit.numberSize}" fill="${kit.accentColor}" 
+          font-weight="bold" stroke="${kit.secondaryColor}" stroke-width="3">
+          ${kit.number.toString().padStart(2, "0")}
+        </text>
+         <text x="500" y="650" font-size="${kit.numberSize}" fill="${kit.accentColor}" 
           font-weight="bold" stroke="${kit.secondaryColor}" stroke-width="3">
           ${kit.number.toString().padStart(2, "0")}
         </text>
@@ -144,19 +173,25 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back")
 
   // Back text
   if (view === "back" && kit.companyName) {
-    const backText = `
-      <g font-family="${kit.fontFamily}" text-anchor="middle">
-        <text x="500" y="295" font-size="24" fill="${kit.accentColor}" 
-          font-style="italic" font-weight="${kit.fontWeight}">
-          ${kit.companyName}
-        </text>
+  const backText = `
+  <g font-family="${kit.fontFamily}" text-anchor="middle">
 
-        <text x="500" y="650" font-size="270px" fill="${kit.accentColor}" 
-          font-weight="bold" stroke="${kit.secondaryColor}" stroke-width="3">
-          ${kit.number.toString().padStart(2, "0")}
-        </text>
-      </g>
-    `
+    <!-- Company Name -->
+    <text x="500" y="295" font-size="24" fill="${kit.accentColor}" 
+      font-style="italic" font-weight="${kit.fontWeight}">
+      ${kit.companyName}
+    </text>
+
+ 
+
+    <!-- Jersey Number -->
+    <text x="500" y="650" font-size="270px" fill="${kit.accentColor}" 
+      font-weight="bold" stroke="${kit.secondaryColor}" stroke-width="3">
+      ${kit.number.toString().padStart(2, "0")}
+    </text>
+
+  </g>
+`
     svg = svg.replace(closeTag, `${backText}${closeTag}`)
   }
 
