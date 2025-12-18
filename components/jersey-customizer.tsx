@@ -85,7 +85,7 @@ export default function JerseyCustomizer() {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(customization))
-  }, [customization])
+  }, [customization, customization.size])
 
   const handleKitTabChange = (kitType: "home" | "away") => {
     setCustomization((prev) => ({
