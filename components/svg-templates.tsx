@@ -5,6 +5,7 @@ function extractCls2Path(svg: string): string | null {
   return match ? match[1] : null
 }
 
+const fontFamily = "Arial, sans-serif"
 
 const FRONT_SVG_BASE = `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_5" data-name="Layer 5" viewBox="0 0 1000 1000">
   <defs>
@@ -128,7 +129,7 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back",
   // Front text (Name + Number)
   if (view === "front") {
     const frontText = `
-      <g font-family="${kit.fontFamily}" text-anchor="middle">
+      <g font-family="${fontFamily}" text-anchor="middle">
         <text x="500" y="400" font-size="24" fill="${kit.accentColor}" 
           font-style="italic" font-weight="${kit.fontWeight}">
           ${kit.companyName}
@@ -174,7 +175,7 @@ export function generateJerseySVG(kit: KitCustomization, view: "front" | "back",
   // Back text
   if (view === "back" && kit.companyName) {
   const backText = `
-  <g font-family="${kit.fontFamily}" text-anchor="middle">
+  <g font-family="${fontFamily}" text-anchor="middle">
 
     <!-- Company Name -->
     <text x="500" y="295" font-size="24" fill="${kit.accentColor}" 
