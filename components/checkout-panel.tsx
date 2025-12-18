@@ -181,7 +181,7 @@ export default function CheckoutPanel({ customization, onCheckout }: CheckoutPan
             </div>
           </div>
 
-          <div className="space-y-2 mb-6">
+          {/* <div className="space-y-2 mb-6">
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Price per set</span>
               <span className="text-white">${PRICE_PER_SET.toFixed(2)}</span>
@@ -198,7 +198,7 @@ export default function CheckoutPanel({ customization, onCheckout }: CheckoutPan
               <span className="text-white">Total</span>
               <span className="text-blue-400">${(total + 10).toFixed(2)}</span>
             </div>
-          </div>
+          </div> */}
         </Card>
 
         {/* Contact Form */}
