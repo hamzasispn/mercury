@@ -37,7 +37,49 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --font-script : 'script', sans-serif;
+  --font-michigan : 'michigan', sans-serif;
+  --font-block : 'block', sans-serif;
+  --font-kansas : 'kansas', sans-serif;
+  --font-bureau : 'bureau', sans-serif;
 }
+.font-script {
+  font-family: var(--font-script);
+}
+.font-michigan {
+  font-family: var(--font-michigan);
+}
+.font-block {
+  font-family: var(--font-block);
+}
+.font-kansas {
+  font-family: var(--font-kansas);
+} 
+.font-bureau {
+  font-family: var(--font-bureau);
+}
+.font-Arial{
+  font-family: Arial, sans-serif;
+}
+.font-Helvetica{
+  font-family: Helvetica, sans-serif;
+}
+.font-Times-New-Roman{
+  font-family: 'Times New Roman', serif;
+}
+.font-Courier-New{
+  font-family: 'Courier New', monospace;
+}
+.font-Georgia{
+  font-family: Georgia, serif;
+}
+.font-Verdana{
+  font-family: Verdana, sans-serif;
+}
+.font-Impact{
+  font-family: Impact, sans-serif;
+}
+
 
 .dark {
   --background: oklch(0.145 0 0);
@@ -123,3 +165,4 @@
     @apply bg-background text-foreground;
   }
 }
+
