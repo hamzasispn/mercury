@@ -21,7 +21,7 @@ interface CustomizationSidebarProps {
 }
 
 const SIZES = ["YS/YM", "YL/YXL", "S/M", "L/XL", "2XL/3XL"]
-const FONT_FAMILIES = ["Arial", "Helvetica", "Times New Roman", "Courier New", "Georgia", "Verdana", "Impact"]
+const FONT_FAMILIES = ["Arial", "Helvetica", "Times New Roman", "Courier New", "Georgia", "Verdana", "Impact", "Comic Sans MS", "Trebuchet MS", "monserrat", "Roboto", "Open Sans", "kansas city", "futura"]
 const FONT_WEIGHTS = ["400", "500", "600", "700", "800", "900"]
 
 function KitPanel({ kit, kitType, onChange }: any) {
