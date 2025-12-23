@@ -30,6 +30,9 @@ export default function CheckoutPanel({ customization, onCheckout }: CheckoutPan
     notes: "",
   })
 
+
+
+  console.log("Customization in CheckoutPanel:", customization)
   const total = PRICE_PER_SET * customization.quantity
 
   const handleSubmit = async (e: React.FormEvent) => {
