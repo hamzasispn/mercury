@@ -28,7 +28,7 @@ export interface CustomizationState {
   awayKit: KitCustomization
   size: "YS/YM" | "YL/YXL" | "S/M" | "L/XL" | "2XL/3XL"
   quantity: number
-  activeKit: "home" | "away"
+  activeKit: "side 1" | "side 2"
 }
 
 const INITIAL_KIT: KitCustomization = {
@@ -87,7 +87,7 @@ export default function JerseyCustomizer() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(customization))
   }, [customization, customization.size])
 
-  const handleKitTabChange = (kitType: "home" | "away") => {
+  const handleKitTabChange = (kitType: "side 1" | "side 2") => {
     setCustomization((prev) => ({
       ...prev,
       activeKit: kitType,

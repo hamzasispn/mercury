@@ -222,7 +222,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
         </CollapsibleTrigger>
         <CollapsibleContent className="mt-3 space-y-3">
           {/* Logo Upload */}
-          <div className="space-y-2">
+          {/* <div className="space-y-2">
             <Label className="text-xs text-gray-400">Logo (Front)</Label>
             <div className="flex items-center gap-2">
               <label className="flex-1 flex items-center justify-center gap-2 p-3 bg-slate-700 border border-slate-600 rounded cursor-pointer hover:bg-slate-600 transition-colors">
@@ -246,7 +246,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
                 <img src={kit.logoImage || "/placeholder.svg"} alt="Logo" className="w-full h-full object-contain" />
               </div>
             )}
-          </div>
+          </div> */}
 
           {/* Material Upload */}
           <div className="space-y-2">
@@ -302,8 +302,8 @@ export default function CustomizationSidebar({
       {/* Kit Tabs */}
       <Tabs value={customization.activeKit} onValueChange={onKitTabChange} className="flex-1">
         <TabsList className="grid w-full grid-cols-2 m-4 mb-0 bg-slate-700">
-          <TabsTrigger value="home">Home Kit</TabsTrigger>
-          <TabsTrigger value="away">Away Kit</TabsTrigger>
+          <TabsTrigger value="home">Side 1</TabsTrigger>
+          <TabsTrigger value="away">Side 2  </TabsTrigger>
         </TabsList>
 
         <div className="overflow-y-auto" style={{ maxHeight: "calc(100vh - 16rem)" }}>
@@ -326,7 +326,7 @@ export default function CustomizationSidebar({
       </Tabs>
 
       {/* Order Details */}
-      <Card className="m-4 bg-slate-700/50 border-slate-600 p-4">
+      {/* <Card className="m-4 bg-slate-700/50 border-slate-600 p-4">
         <h3 className="font-semibold mb-3 text-blue-400 text-sm">Order Details</h3>
 
         <div className="space-y-3">
@@ -376,7 +376,7 @@ export default function CustomizationSidebar({
             <p className="text-xs text-gray-500">Each = 1 Home + 1 Away kit</p>
           </div>
         </div>
-      </Card>
+      </Card> */}
     </div>
   )
 }
