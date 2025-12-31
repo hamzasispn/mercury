@@ -344,9 +344,13 @@ export function generateJerseySVG(
   view: "front" | "back",
   size?: string
 ) {
+
+  console.log("Generating jersey SVG with kit:", kit, "view:", view)
   const uid = `${view}-${Date.now()}-${Math.random().toString(36).slice(2)}`
 
   let svg = view === "front" ? FRONT_SVG_BASE : BACK_SVG_BASE
+  let frontbg = view === "front" ? kit.primaryColor : "#ffffff"
+  let backbg = view === "back" ? kit.primaryColor : "#000000"
   const closeTag = "</svg>"
 
   // 🔐 isolate this jersey

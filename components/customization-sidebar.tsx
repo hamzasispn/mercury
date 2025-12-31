@@ -62,7 +62,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
         <CollapsibleContent className="mt-3 space-y-3">
           {/* Primary Color */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Primary Color</Label>
+            <Label className="text-xs text-gray-400">color Zone 5</Label>
             <div className="flex gap-2">
               <input
                 type="color"
@@ -81,7 +81,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
 
           {/* Secondary Color */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Secondary Color</Label>
+            <Label className="text-xs text-gray-400">color Zone 4</Label>
             <div className="flex gap-2">
               <input
                 type="color"
@@ -100,7 +100,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
 
           {/* Text Color */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Text Color</Label>
+            <Label className="text-xs text-gray-400">Color Zone 3</Label>
             <div className="flex gap-2">
               <input
                 type="color"
@@ -249,7 +249,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
           </div> */}
 
           {/* Material Upload */}
-          <div className="space-y-2">
+          {/* <div className="space-y-2">
             <Label className="text-xs text-gray-400">Material Texture</Label>
             <div className="flex items-center gap-2">
               <label className="flex-1 flex items-center justify-center gap-2 p-3 bg-slate-700 border border-slate-600 rounded cursor-pointer hover:bg-slate-600 transition-colors">
@@ -283,7 +283,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
               </div>
             )}
             <p className="text-xs text-gray-500">PNG/SVG with transparency</p>
-          </div>
+          </div> */}
         </CollapsibleContent>
       </Collapsible>
     </div>
