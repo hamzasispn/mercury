@@ -153,17 +153,26 @@ function KitPanel({ kit, kitType, onChange }: any) {
           </div>
 
           {/* Number Size */}
-          <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Number Size: {kit.numberSize}px</Label>
-            <input
-              type="range"
-              min="80"
-              max="200"
-              value={kit.numberSize || 150}
-              onChange={(e) => onChange({ numberSize: Number(e.target.value) })}
-              className="w-full"
-            />
-          </div>
+       <div className="space-y-2">
+  <Label className="text-xs text-gray-400">
+    Number Size : {kit.numberSize}
+  </Label>
+
+  <select
+    value={kit.numberSize || 12}
+    onChange={(e) =>
+      onChange({ numberSize: e.target.value })
+    }
+    className="w-full bg-slate-700 border-slate-600 text-white rounded px-2 py-1 text-sm"
+  >
+    <option value={"6rem"}>6</option>
+    <option value={"8rem"}>8 </option>
+    <option value={"10rem"}>12 </option>
+    <option value={"12rem"}>14 </option>
+    <option value={"14rem"}>16 </option>
+  </select>
+</div>
+
 
           {/* Font Family */}
           <div className="space-y-2">
@@ -249,6 +258,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
           </div> */}
 
           {/* Material Upload */}
+
           {/* <div className="space-y-2">
             <Label className="text-xs text-gray-400">Material Texture</Label>
             <div className="flex items-center gap-2">
