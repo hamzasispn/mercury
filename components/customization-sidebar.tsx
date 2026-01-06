@@ -21,8 +21,10 @@ interface CustomizationSidebarProps {
 }
 
 const SIZES = ["YS/YM", "YL/YXL", "S/M", "L/XL", "2XL/3XL"]
-const FONT_FAMILIES = ["font-Arial", "font-Helvetica", "font-Times-New-Roman", "font-Courier-New", "font-Georgia", "font-Verdana", "font-Impact", "font-script", "font-michigan", "font-block", "font-kansas", "font-bureau"]
+const FONT_FAMILIES = ["Arial", "Helvetica", "Times-New-Roman", "Courier-New", "Georgia", "Verdana", "Impact", "script", "michigan", "block", "kansas", "bureau"]
 const FONT_WEIGHTS = ["400", "500", "600", "700", "800", "900"]
+
+const colorsHex = ['#713042', '#2a2c2e', '#a2a8ad', '#f4f9ff', "#2d523b", '#f6fafe', '#1f5592', '#473a76', '#864b5b', '#a91b28', '#4b232e']
 
 function KitPanel({ kit, kitType, onChange }: any) {
   const [colorsOpen, setColorsOpen] = useState(true)
@@ -40,16 +42,16 @@ function KitPanel({ kit, kitType, onChange }: any) {
     }
   }
 
-  const handleMaterialUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      const reader = new FileReader()
-      reader.onload = (event) => {
-        onChange({ materialImage: event.target?.result as string })
-      }
-      reader.readAsDataURL(file)
-    }
-  }
+  // const handleMaterialUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = e.target.files?.[0]
+  //   if (file) {
+  //     const reader = new FileReader()
+  //     reader.onload = (event) => {
+  //       onChange({ materialImage: event.target?.result as string })
+  //     }
+  //     reader.readAsDataURL(file)
+  //   }
+  // }
 
   return (
     <div className="space-y-4 p-4">
@@ -62,60 +64,75 @@ function KitPanel({ kit, kitType, onChange }: any) {
         <CollapsibleContent className="mt-3 space-y-3">
           {/* Primary Color */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">color Zone 5</Label>
-            <div className="flex gap-2">
-              <input
-                type="color"
-                value={kit.primaryColor}
-                onChange={(e) => onChange({ primaryColor: e.target.value })}
-                className="w-12 h-10 rounded cursor-pointer border border-slate-600"
-              />
-              <Input
-                type="text"
-                value={kit.primaryColor}
-                onChange={(e) => onChange({ primaryColor: e.target.value })}
-                className="flex-1 bg-slate-700 border-slate-600 text-white text-sm"
-              />
+            <Label className="text-xs text-gray-400">color Zone 1 (Logo + Size Patch)</Label>
+            <div className="flex gap-2 items-center flex-wrap">
+              {colorsHex.map((color) => (
+                <button
+                  key={color}
+                  className="w-8 h-8 rounded border border-slate-600"
+                  style={{ backgroundColor: color }}
+                  onClick={() => onChange({ secondColor: color })}
+                />
+              ))}
             </div>
           </div>
-
+          <div className="space-y-2">
+            <Label className="text-xs text-gray-400">color Zone 2 (Outline Zone )</Label>
+            <div className="flex gap-2 items-center flex-wrap">
+              {colorsHex.map((color) => (
+                <button
+                  key={color}
+                  className="w-8 h-8 rounded border border-slate-600"
+                  style={{ backgroundColor: color }}
+                  onClick={() => onChange({ firstColor: color })}
+                />
+              ))}
+            </div>
+          </div>
+            <div className="space-y-2">
+            <Label className="text-xs text-gray-400">Color Zone 3 (Team name color)</Label>
+   <div className="flex gap-2 items-center flex-wrap">
+              {colorsHex.map((color) => (
+                <button
+                  key={color}
+                  className="w-8 h-8 rounded border border-slate-600"
+                  style={{ backgroundColor: color }}
+                  onClick={() => onChange({ secondaryColor: color })}
+                />
+              ))}
+            </div>
+          </div>
           {/* Secondary Color */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">color Zone 4</Label>
-            <div className="flex gap-2">
-              <input
-                type="color"
-                value={kit.secondaryColor}
-                onChange={(e) => onChange({ secondaryColor: e.target.value })}
-                className="w-12 h-10 rounded cursor-pointer border border-slate-600"
-              />
-              <Input
-                type="text"
-                value={kit.secondaryColor}
-                onChange={(e) => onChange({ secondaryColor: e.target.value })}
-                className="flex-1 bg-slate-700 border-slate-600 text-white text-sm"
-              />
+            <Label className="text-xs text-gray-400">color Zone 4 (Team Numbercolor + Top inner outline)</Label>
+            <div className="flex gap-2 items-center flex-wrap">
+              {colorsHex.map((color) => (
+                <button
+                  key={color}
+                  className="w-8 h-8 rounded border border-slate-600"
+                  style={{ backgroundColor: color }}
+                  onClick={() => onChange({ accentColor: color })}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="space-y-2">
+            <Label className="text-xs text-gray-400">color Zone 5 (Jersey Color)</Label>
+            <div className="flex gap-2 items-center flex-wrap">
+              {colorsHex.map((color) => (
+                <button
+                  key={color}
+                  className="w-8 h-8 rounded border border-slate-600"
+                  style={{ backgroundColor: color }}
+                  onClick={() => onChange({ primaryColor: color })}
+                />
+              ))}
             </div>
           </div>
 
+        
+
           {/* Text Color */}
-          <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Color Zone 3</Label>
-            <div className="flex gap-2">
-              <input
-                type="color"
-                value={kit.accentColor}
-                onChange={(e) => onChange({ accentColor: e.target.value })}
-                className="w-12 h-10 rounded cursor-pointer border border-slate-600"
-              />
-              <Input
-                type="text"
-                value={kit.accentColor}
-                onChange={(e) => onChange({ accentColor: e.target.value })}
-                className="flex-1 bg-slate-700 border-slate-600 text-white text-sm"
-              />
-            </div>
-          </div>
         </CollapsibleContent>
       </Collapsible>
 
@@ -223,79 +240,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
         </CollapsibleContent>
       </Collapsible>
 
-      {/* Uploads Section */}
-      <Collapsible open={uploadsOpen} onOpenChange={setUploadsOpen}>
-        <CollapsibleTrigger className="flex items-center justify-between w-full p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-colors">
-          <span className="font-semibold text-blue-400">Uploads</span>
-          <ChevronDown className={`w-4 h-4 transition-transform ${uploadsOpen ? "rotate-180" : ""}`} />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="mt-3 space-y-3">
-          {/* Logo Upload */}
-          {/* <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Logo (Front)</Label>
-            <div className="flex items-center gap-2">
-              <label className="flex-1 flex items-center justify-center gap-2 p-3 bg-slate-700 border border-slate-600 rounded cursor-pointer hover:bg-slate-600 transition-colors">
-                <Upload className="w-4 h-4" />
-                <span className="text-sm">Upload Logo</span>
-                <input type="file" accept="image/png,image/svg+xml" onChange={handleLogoUpload} className="hidden" />
-              </label>
-              {kit.logoImage && (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => onChange({ logoImage: null })}
-                  className="text-red-400 hover:text-red-300"
-                >
-                  <X className="w-4 h-4" />
-                </Button>
-              )}
-            </div>
-            {kit.logoImage && (
-              <div className="w-20 h-20 bg-slate-700 rounded p-2">
-                <img src={kit.logoImage || "/placeholder.svg"} alt="Logo" className="w-full h-full object-contain" />
-              </div>
-            )}
-          </div> */}
 
-          {/* Material Upload */}
-
-          {/* <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Material Texture</Label>
-            <div className="flex items-center gap-2">
-              <label className="flex-1 flex items-center justify-center gap-2 p-3 bg-slate-700 border border-slate-600 rounded cursor-pointer hover:bg-slate-600 transition-colors">
-                <Upload className="w-4 h-4" />
-                <span className="text-sm">Upload Material</span>
-                <input
-                  type="file"
-                  accept="image/png,image/svg+xml"
-                  onChange={handleMaterialUpload}
-                  className="hidden"
-                />
-              </label>
-              {kit.materialImage && (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => onChange({ materialImage: null })}
-                  className="text-red-400 hover:text-red-300"
-                >
-                  <X className="w-4 h-4" />
-                </Button>
-              )}
-            </div>
-            {kit.materialImage && (
-              <div className="w-20 h-20 bg-slate-700 rounded p-2">
-                <img
-                  src={kit.materialImage || "/placeholder.svg"}
-                  alt="Material"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            )}
-            <p className="text-xs text-gray-500">PNG/SVG with transparency</p>
-          </div> */}
-        </CollapsibleContent>
-      </Collapsible>
     </div>
   )
 }
