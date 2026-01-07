@@ -198,7 +198,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
               <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-slate-700 border-slate-600">
+              <SelectContent className="bg-slate-700 border-slate-600 text-white">
                 {FONT_FAMILIES.map((font) => (
                   <SelectItem key={font} value={font}>
                     {font}
@@ -215,7 +215,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
               <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-slate-700 border-slate-600">
+              <SelectContent className="bg-slate-700 border-slate-600 text-white">
                 {FONT_WEIGHTS.map((weight) => (
                   <SelectItem key={weight} value={weight}>
                     {weight}
