@@ -96,7 +96,7 @@ export async function POST(request: NextRequest) {
           Authorization: `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
-          from: "Orders <onboarding@resend.dev>", // Replace with your verified domain
+          from: "Orders <onboarding@resend.dev>", 
           to: formData.email,
           subject: `Order Confirmation - ${orderId}`,
           html: emailHtml,

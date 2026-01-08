@@ -24,7 +24,19 @@ const SIZES = ["YS/YM", "YL/YXL", "S/M", "L/XL", "2XL/3XL"]
 const FONT_FAMILIES = ["Arial", "Helvetica", "Times-New-Roman", "Courier-New", "Georgia", "Verdana", "Impact", "script", "michigan", "block", "kansas", "bureau"]
 const FONT_WEIGHTS = ["400", "500", "600", "700", "800", "900"]
 
-const colorsHex = ['#713042', '#2a2c2e', '#a2a8ad', '#f4f9ff', "#2d523b", '#f6fafe', '#1f5592', '#473a76', '#864b5b', '#a91b28', '#4b232e']
+const colorsHex = [
+  { name: 'Maroon Brown', hex: '#713042' },
+  { name: 'Charcoal Black', hex: '#2a2c2e' },
+  { name: 'Cool Gray', hex: '#a2a8ad' },
+  { name: 'Soft White', hex: '#f4f9ff' },
+  { name: 'Forest Green', hex: '#2d523b' },
+  { name: 'Ice White', hex: '#f6fafe' },
+  { name: 'Royal Blue', hex: '#1f5592' },
+  { name: 'Deep Purple', hex: '#473a76' },
+  { name: 'Dusty Rose', hex: '#864b5b' },
+  { name: 'Crimson Red', hex: '#a91b28' },
+  { name: 'Dark Wine', hex: '#4b232e' }
+];
 
 function KitPanel({ kit, kitType, onChange }: any) {
   const [colorsOpen, setColorsOpen] = useState(true)
@@ -68,10 +80,10 @@ function KitPanel({ kit, kitType, onChange }: any) {
             <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
                 <button
-                  key={color}
+                  key={color.name}
                   className="w-8 h-8 rounded border border-slate-600"
-                  style={{ backgroundColor: color }}
-                  onClick={() => onChange({ secondColor: color })}
+                  style={{ backgroundColor: color.hex }}
+                  onClick={() => onChange({ secondColor: color.hex })}
                 />
               ))}
             </div>
@@ -81,23 +93,23 @@ function KitPanel({ kit, kitType, onChange }: any) {
             <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
                 <button
-                  key={color}
+                  key={color.name}
                   className="w-8 h-8 rounded border border-slate-600"
-                  style={{ backgroundColor: color }}
-                  onClick={() => onChange({ firstColor: color })}
+                  style={{ backgroundColor: color.hex }}
+                  onClick={() => onChange({ firstColor: color.hex })}
                 />
               ))}
             </div>
           </div>
-            <div className="space-y-2">
+          <div className="space-y-2">
             <Label className="text-xs text-gray-400">Color Zone 3 (Team name color)</Label>
-   <div className="flex gap-2 items-center flex-wrap">
+            <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
                 <button
-                  key={color}
+                  key={color.name}
                   className="w-8 h-8 rounded border border-slate-600"
-                  style={{ backgroundColor: color }}
-                  onClick={() => onChange({ secondaryColor: color })}
+                  style={{ backgroundColor: color.hex }}
+                  onClick={() => onChange({ secondaryColor: color.hex })}
                 />
               ))}
             </div>
@@ -108,10 +120,10 @@ function KitPanel({ kit, kitType, onChange }: any) {
             <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
                 <button
-                  key={color}
+                  key={color.name}
                   className="w-8 h-8 rounded border border-slate-600"
-                  style={{ backgroundColor: color }}
-                  onClick={() => onChange({ accentColor: color })}
+                  style={{ backgroundColor: color.hex }}
+                  onClick={() => onChange({ accentColor: color.hex })}
                 />
               ))}
             </div>
@@ -120,17 +132,20 @@ function KitPanel({ kit, kitType, onChange }: any) {
             <Label className="text-xs text-gray-400">color Zone 5 (Jersey Color)</Label>
             <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
-                <button
-                  key={color}
-                  className="w-8 h-8 rounded border border-slate-600"
-                  style={{ backgroundColor: color }}
-                  onClick={() => onChange({ primaryColor: color })}
-                />
+                <div className="relative">
+                  <button
+                    key={color.name}
+                    className="w-8 h-8 rounded border border-slate-600"
+                    style={{ backgroundColor: color.hex }}
+                    onClick={() => onChange({ primaryColor: color.hex })}
+                  />
+                  
+                </div>
               ))}
             </div>
           </div>
 
-        
+
 
           {/* Text Color */}
         </CollapsibleContent>
@@ -170,25 +185,24 @@ function KitPanel({ kit, kitType, onChange }: any) {
           </div>
 
           {/* Number Size */}
-       <div className="space-y-2">
-  <Label className="text-xs text-gray-400">
-    Number Size : {kit.numberSize}
-  </Label>
+          <div className="space-y-2">
+            <Label className="text-xs text-gray-400">
+              Number Size : {kit.numberSize}
+            </Label>
 
-  <select
-    value={kit.numberSize || 12}
-    onChange={(e) =>
-      onChange({ numberSize: e.target.value })
-    }
-    className="w-full bg-slate-700 border-slate-600 text-white rounded px-2 py-1 text-sm"
-  >
-    <option value={"6rem"}>6</option>
-    <option value={"8rem"}>8 </option>
-    <option value={"10rem"}>12 </option>
-    <option value={"12rem"}>14 </option>
-    <option value={"14rem"}>16 </option>
-  </select>
-</div>
+            <select
+              value={kit.numberSize || 12}
+              onChange={(e) =>
+                onChange({ numberSize: e.target.value })
+              }
+              className="w-full bg-slate-700 border-slate-600 text-white rounded px-2 py-1 text-sm"
+            >
+              <option value={"6rem"}>6 inchs</option>
+              <option value={"8rem"}>8 inches</option>
+              <option value={"10rem"}>12 inches </option>
+              <option value={"12rem"}>14 inches </option>
+            </select>
+          </div>
 
 
           {/* Font Family */}
