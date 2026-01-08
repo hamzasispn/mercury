@@ -79,12 +79,15 @@ function KitPanel({ kit, kitType, onChange }: any) {
             <Label className="text-xs text-gray-400">color Zone 1 (Logo + Size Patch)</Label>
             <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
-                <button
-                  key={color.name}
-                  className="w-8 h-8 rounded border border-slate-600"
-                  style={{ backgroundColor: color.hex }}
-                  onClick={() => onChange({ secondColor: color.hex })}
-                />
+                <div className="relative group">
+                  <button
+                    key={color.name}
+                    className="w-8 h-8 rounded border border-slate-600 "
+                    style={{ backgroundColor: color.hex }}
+                    onClick={() => onChange({ secondColor: color.hex })}
+                  />
+                  <div className="hidden group-hover:inline bg-white p-2 text-black text-sm absolute top-10 z-[999999] w-[150px] left-0">{color.name}</div>
+                </div>
               ))}
             </div>
           </div>
@@ -92,12 +95,15 @@ function KitPanel({ kit, kitType, onChange }: any) {
             <Label className="text-xs text-gray-400">color Zone 2 (Outline Zone )</Label>
             <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
-                <button
-                  key={color.name}
-                  className="w-8 h-8 rounded border border-slate-600"
-                  style={{ backgroundColor: color.hex }}
-                  onClick={() => onChange({ firstColor: color.hex })}
-                />
+                <div className="relative group">
+                  <button
+                    key={color.name}
+                    className="w-8 h-8 rounded border border-slate-600 "
+                    style={{ backgroundColor: color.hex }}
+                    onClick={() => onChange({ firstColor: color.hex })}
+                  />
+                  <div className="hidden group-hover:inline bg-white p-2 text-black text-sm absolute top-10 z-[999999] w-[150px] left-0">{color.name}</div>
+                </div>
               ))}
             </div>
           </div>
@@ -105,12 +111,15 @@ function KitPanel({ kit, kitType, onChange }: any) {
             <Label className="text-xs text-gray-400">Color Zone 3 (Team name color)</Label>
             <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
-                <button
-                  key={color.name}
-                  className="w-8 h-8 rounded border border-slate-600"
-                  style={{ backgroundColor: color.hex }}
-                  onClick={() => onChange({ secondaryColor: color.hex })}
-                />
+                <div className="relative group">
+                  <button
+                    key={color.name}
+                    className="w-8 h-8 rounded border border-slate-600 "
+                    style={{ backgroundColor: color.hex }}
+                    onClick={() => onChange({ secondaryColor: color.hex })}
+                  />
+                  <div className="hidden group-hover:inline bg-white p-2 text-black text-sm absolute top-10 z-[999999] w-[150px] left-0">{color.name}</div>
+                </div>
               ))}
             </div>
           </div>
@@ -119,12 +128,15 @@ function KitPanel({ kit, kitType, onChange }: any) {
             <Label className="text-xs text-gray-400">color Zone 4 (Team Numbercolor + Top inner outline)</Label>
             <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
-                <button
-                  key={color.name}
-                  className="w-8 h-8 rounded border border-slate-600"
-                  style={{ backgroundColor: color.hex }}
-                  onClick={() => onChange({ accentColor: color.hex })}
-                />
+                <div className="relative group">
+                  <button
+                    key={color.name}
+                    className="w-8 h-8 rounded border border-slate-600 "
+                    style={{ backgroundColor: color.hex }}
+                    onClick={() => onChange({ accentColor: color.hex })}
+                  />
+                  <div className="hidden group-hover:inline bg-white p-2 text-black text-sm absolute top-10 z-[999999] w-[150px] left-0">{color.name}</div>
+                </div>
               ))}
             </div>
           </div>
@@ -132,14 +144,14 @@ function KitPanel({ kit, kitType, onChange }: any) {
             <Label className="text-xs text-gray-400">color Zone 5 (Jersey Color)</Label>
             <div className="flex gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
-                <div className="relative">
+                <div className="relative group">
                   <button
                     key={color.name}
-                    className="w-8 h-8 rounded border border-slate-600"
+                    className="w-8 h-8 rounded border border-slate-600 "
                     style={{ backgroundColor: color.hex }}
                     onClick={() => onChange({ primaryColor: color.hex })}
                   />
-                  
+                  <div className="hidden group-hover:inline bg-white p-2 text-black text-sm absolute top-10 z-[999999] w-[150px] left-0">{color.name}</div>
                 </div>
               ))}
             </div>
