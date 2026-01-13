@@ -421,16 +421,16 @@ fill="${kit.secondColor}"
 
 </svg>
 
-  <text x="360" y="770" font-size="21" fill="${kit.secondColor}" 
+  <text x="360" y="770" font-size="18" fill="${kit.secondColor}" 
           font-style="italic" font-weight="${kit.fontWeight}">
           ${size}
         </text>
 
-        <text x="500" y="650" font-size="${kit.numberSize}" fill="${kit.accentColor}" 
+        <text x="500" y="650" font-size="${kit.numberSize}" class="font-${kit.textfontFamily}" fill="${kit.accentColor}" 
           font-weight="bold" stroke="${kit.firstColor}" stroke-width="3">
           ${kit.number.toString().padStart(2, "0")}
         </text>
-         <text x="500" y="650" font-size="${kit.numberSize}" fill="${kit.accentColor}" 
+         <text x="500" y="650" font-size="${kit.numberSize}" class="font-${kit.textfontFamily}" fill="${kit.accentColor}" 
           font-weight="bold" stroke="${kit.firstColor}" stroke-width="3">
           ${kit.number.toString().padStart(2, "0")}
         </text>
@@ -454,14 +454,14 @@ fill="${kit.secondColor}"
    <path d="m1108.25,1022.46c-2.09,8.05-3.84,15.07-5.82,22.03-.22.79-1.61,1.52-2.59,1.77-1.26.31-2.65.11-3.98.11-52.95,0-105.91,0-158.86,0-11.6,0-20.89-11.15-17.73-22.41,3.31-11.79,7.7-23.28,11.76-34.86,14.73-41.93,29.56-83.82,44.22-125.77,1.74-4.97,3.35-10.19,3.68-15.38.25-3.98-1.62-8.09-2.6-12.36h196.92c-1.85,6.81-3.27,13.45-5.65,19.73-.58,1.52-4.34,2.58-6.64,2.59-31.14.11-62.28-.04-93.42-.06-9.99,0-19.98.17-29.97.23-7.71.04-12.76,3.5-15.39,10.91-16.81,47.31-33.76,94.58-50.61,141.88-2.76,7.76-.23,11.61,7.86,11.62,40.79.07,81.59,0,122.38-.03,1.95,0,3.89,0,6.46,0Z"/>
    <path d="m1634.26,1046.35c5.16-14.38,10.04-27.92,14.87-41.47,10.13-28.41,20.18-56.86,30.43-85.22,1.71-4.72,1.73-8.53-1.31-12.91-13.62-19.63-26.94-39.47-40.25-59.3-2.4-3.57-4.28-7.49-6.9-12.12,20.35,0,39.14-.11,57.94.18,1.76.03,3.97,2.19,5.15,3.93,10.36,15.23,20.65,30.51,30.67,45.97,2.24,3.45,3.82,3.1,6.61.99,21.34-16.12,42.73-32.18,64.2-48.13,1.91-1.42,4.45-2.67,6.74-2.77,8.12-.33,16.27-.13,24.28-.13,2.18,5.35-1.74,7.12-4.83,9.43-29,21.7-58.02,43.37-86.9,65.23-2.5,1.89-4.78,4.8-5.84,7.72-11.95,32.68-23.69,65.43-35.37,98.2-3.33,9.35-6.21,18.86-9.51,28.23-.35.99-2.12,2.09-3.24,2.1-15.3.14-30.6.09-46.74.09Z"/>
  </svg>
-   <g class="font-${kit.fontFamily}" text-anchor="middle">
+   <g class="font-${kit.textfontFamily}" text-anchor="middle">
 
 
 
 
 
      <!-- Jersey Number -->
-     <text x="500" y="650" font-size="270px" fill="${kit.accentColor}" 
+     <text x="500" y="650" font-size="200px" fill="${kit.accentColor}" 
        font-weight="bold" stroke="${kit.firstColor}" stroke-width="3">
        ${kit.number.toString().padStart(2, "0")}
      </text>
