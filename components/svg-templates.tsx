@@ -398,10 +398,10 @@ export function generateJerseySVG(
       `
        <g class="font-${kit.fontFamily}" text-anchor="middle">
         <text x="500" y="500" font-size="24" fill="${kit.secondaryColor}" 
-          font-style="italic" font-weight="${kit.fontWeight}">
+          font-style="italic" stroke="${kit.firstColor}" stroke-width="1" font-weight="${kit.fontWeight}">
           ${kit.companyName}
         </text>
-        <text x="500" y="470" font-size="40" fill="${kit.secondaryColor}" font-weight="${kit.fontWeight}">
+        <text x="500" y="470" font-size="40" fill="${kit.secondaryColor}" stroke="${kit.firstColor}" stroke-width="1" font-weight="${kit.fontWeight}">
           ${kit.name}
         </text>
 
@@ -461,7 +461,7 @@ fill="${kit.secondColor}"
 
 
      <!-- Jersey Number -->
-     <text x="500" y="650" font-size="200px" fill="${kit.accentColor}" 
+     <text x="500" y="650" font-size="${kit.backnumberSize}" fill="${kit.accentColor}" 
        font-weight="bold" stroke="${kit.firstColor}" stroke-width="3">
        ${kit.number.toString().padStart(2, "0")}
      </text>

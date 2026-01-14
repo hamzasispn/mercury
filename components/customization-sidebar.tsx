@@ -21,7 +21,7 @@ interface CustomizationSidebarProps {
 }
 
 const SIZES = ["YS/YM", "YL/YXL", "S/M", "L/XL", "2XL/3XL"]
-const FONT_FAMILIES = ["Arial", "Helvetica", "Times-New-Roman", "Courier-New", "Georgia", "Verdana", "Impact", "michigan", "block", "kansas", "bureau"]
+const FONT_FAMILIES = ["Arial", "Helvetica", "Times-New-Roman", "Courier-New", "Georgia", "Verdana", "Impact", "block", "kansas", "bureau"]
 const FONT_WEIGHTS = ["400", "500", "600", "700", "800", "900"]
 
 const colorsHex = [
@@ -76,7 +76,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
         <CollapsibleContent className="mt-3 space-y-3">
           {/* Primary Color */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">color Zone 1 (Logo + Size Patch)</Label>
+            <Label className="text-xs text-gray-900">color Zone 1 (Logo + Size Patch)</Label>
             <div className="grid grid-cols-2 gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
                 <div className="relative group flex gap-2 items-center">
@@ -92,7 +92,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
             </div>
           </div>
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">color Zone 2 (Outline Zone )</Label>
+            <Label className="text-xs text-gray-900">color Zone 2 (Outline Zone )</Label>
             <div className="grid grid-cols-2 gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
                 <div className="relative group flex gap-2 items-center">
@@ -108,7 +108,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
             </div>
           </div>
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Color Zone 3 (Team name color)</Label>
+            <Label className="text-xs text-gray-900">Color Zone 3 (Team name color)</Label>
             <div className="grid grid-cols-2 gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
                 <div className="relative group flex gap-2 items-center">
@@ -125,7 +125,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
           </div>
           {/* Secondary Color */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">color Zone 4 (Team Numbercolor + Top inner outline)</Label>
+            <Label className="text-xs text-gray-900">Color Zone 4 (Team Number Color + Top Inner Outline)</Label>
             <div className="grid grid-cols-2 gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
                 <div className="relative group flex gap-2 items-center">
@@ -141,7 +141,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
             </div>
           </div>
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">color Zone 5 (Jersey Color)</Label>
+            <Label className="text-xs text-gray-900">color Zone 5 (Jersey Color)</Label>
             <div className="grid grid-cols-2 gap-2 items-center flex-wrap">
               {colorsHex.map((color) => (
                 <div className="relative group flex gap-2 items-center">
@@ -172,7 +172,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
         <CollapsibleContent className="mt-3 space-y-3">
           {/* Team Name */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Team Name (Front Only)</Label>
+            <Label className="text-xs text-gray-900">Team Name (Front Only)</Label>
             <Input
               value={kit.name}
               onChange={(e) => onChange({ name: e.target.value.toUpperCase().slice(0, 12) })}
@@ -180,12 +180,12 @@ function KitPanel({ kit, kitType, onChange }: any) {
               maxLength={12}
               className="bg-slate-700 border-slate-600 text-white"
             />
-            <p className="text-xs text-gray-500">{kit.name.length}/12 characters</p>
+            <p className="text-xs text-gray-900">{kit.name.length}/12 characters</p>
           </div>
 
           {/* Player Number */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Player Number (Front Only)</Label>
+            <Label className="text-xs text-gray-900">Player Number</Label>
             <Input
               value={kit.number}
               onChange={(e) => onChange({ number: e.target.value.slice(0, 2) })}
@@ -198,8 +198,8 @@ function KitPanel({ kit, kitType, onChange }: any) {
 
           {/* Number Size */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">
-              Number Size : {kit.numberSize}
+            <Label className="text-xs text-gray-900">
+             Front Number Sizes
             </Label>
 
             <select
@@ -209,17 +209,34 @@ function KitPanel({ kit, kitType, onChange }: any) {
               }
               className="w-full bg-slate-700 border-slate-600 text-white rounded px-2 py-1 text-sm"
             >
-              <option value={"6rem"}>6 inchs</option>
+              <option value={"6rem"}>6 inches</option>
               <option value={"8rem"}>8 inches</option>
-              <option value={"10rem"}>12 inches </option>
-              <option value={"12rem"}>14 inches </option>
+              <option value={"10rem"}>10 inches </option>
+              <option value={"12rem"}>12 inches </option>
+            </select>
+          </div>
+          <div className="space-y-2">
+            <Label className="text-xs text-gray-900">
+             Back Number Sizes
+            </Label>
+
+            <select
+              value={kit.backnumberSize || 69}
+              onChange={(e) =>
+                onChange({ backnumberSize: e.target.value })
+              }
+              className="w-full bg-slate-700 border-slate-600 text-white rounded px-2 py-1 text-sm"
+            >
+              <option value={"8rem"}>8 inches</option>
+              <option value={"10rem"}>10 inches </option>
+              <option value={"12rem"}>12 inches </option>
             </select>
           </div>
 
 
           {/* Font Family */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Text Font Family</Label>
+            <Label className="text-xs text-gray-900">Text Font Family</Label>
             <Select value={kit.fontFamily} onValueChange={(value) => onChange({ fontFamily: value })}>
               <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                 <SelectValue />
@@ -235,8 +252,8 @@ function KitPanel({ kit, kitType, onChange }: any) {
           </div>
           {/* Font Family */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400"> Number Font Family</Label>
-            <Select value={kit.textfontFamily} onValueChange={(value) => onChange({ textfontFamily: value })}>
+            <Label className="text-xs text-gray-900"> Number Font Family</Label>
+            <Select value={kit.textfontFamily || 'block'} onValueChange={(value) => onChange({ textfontFamily: value })}>
               <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                 <SelectValue />
               </SelectTrigger>
@@ -252,7 +269,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
 
           {/* Font Weight */}
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Font Weight</Label>
+            <Label className="text-xs text-gray-900">Font Weight</Label>
             <Select value={kit.fontWeight} onValueChange={(value) => onChange({ fontWeight: value })}>
               <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                 <SelectValue />
@@ -269,7 +286,7 @@ function KitPanel({ kit, kitType, onChange }: any) {
 
           {/* Company Name (Back Mercury Logo Area) */}
           {/* <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Company Name (Back Logo Area)</Label>
+            <Label className="text-xs text-gray-900">Company Name (Back Logo Area)</Label>
             <Input
               value={kit.companyName}
               onChange={(e) => onChange({ companyName: e.target.value.slice(0, 20) })}
@@ -295,10 +312,10 @@ export default function CustomizationSidebar({
   onQuantityChange,
 }: CustomizationSidebarProps) {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col rounded-2xl">
       {/* Kit Tabs */}
       <Tabs value={customization.activeKit} onValueChange={onKitTabChange} className="flex-1">
-        <TabsList className="grid w-full grid-cols-2 m-4 mb-0 bg-slate-700">
+        <TabsList className="grid w-[90%] grid-cols-2 m-4 mb-0 bg-slate-700">
           <TabsTrigger value="home">Side 1</TabsTrigger>
           <TabsTrigger value="away">Side 2  </TabsTrigger>
         </TabsList>
@@ -328,7 +345,7 @@ export default function CustomizationSidebar({
 
         <div className="space-y-3">
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Size</Label>
+            <Label className="text-xs text-gray-900">Size</Label>
             <Select value={customization.size} onValueChange={onSizeChange}>
               <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                 <SelectValue />
@@ -344,7 +361,7 @@ export default function CustomizationSidebar({
           </div>
 
           <div className="space-y-2">
-            <Label className="text-xs text-gray-400">Quantity (sets)</Label>
+            <Label className="text-xs text-gray-900">Quantity (sets)</Label>
             <div className="flex gap-2">
               <Button
                 variant="outline"

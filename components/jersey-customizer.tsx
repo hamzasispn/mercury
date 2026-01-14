@@ -133,7 +133,7 @@ export default function JerseyCustomizer() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-400 via-gray-400 to-gray-400 text-white">
       {/* Header */}
       <header className="border-b border-slate-700 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -165,7 +165,7 @@ export default function JerseyCustomizer() {
               <div
                 className={`${
                   sidebarOpen ? "translate-x-0" : "-translate-x-full"
-                } lg:translate-x-0 transition-transform duration-300 fixed lg:sticky top-20 left-0 h-[calc(100vh-5rem)] w-80 lg:w-80 bg-slate-800/50 backdrop-blur-sm border-r border-slate-700 overflow-y-auto z-40`}
+                } lg:translate-x-0 transition-transform duration-300 fixed lg:sticky top-20 left-0 h-[calc(100vh-5rem)] w-80 lg:w-80 bg-slate-800/50 backdrop-blur-sm border-r border-slate-700 overflow-y-auto z-40 rounded-2xl`}
               >
                 <CustomizationSidebar
                   customization={customization}

@@ -357,7 +357,7 @@ export default function CustomizationPanelUnified({
   return (
     <div className="space-y-6">
       {/* Kit Selection Tabs */}
-      <Card className="bg-slate-800 border-slate-700 p-6">
+      <Card className="bg-gray-500 border-slate-700 p-6">
         <Tabs value={customization.activeKit} onValueChange={onKitTabChange} className="w-full">
           <TabsList className="grid w-full grid-cols-2 mb-4">
             <TabsTrigger value="home">Home Kit</TabsTrigger>

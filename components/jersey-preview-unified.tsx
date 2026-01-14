@@ -25,10 +25,10 @@ export default function JerseyPreviewUnified({ customization }: JerseyPreviewUni
   }, [currentKit])
 
   return (
-    <Card className="bg-slate-800/50 backdrop-blur-sm border-slate-700 p-6 h-full">
+    <Card className="bg-gray-500 backdrop-blur-sm border-slate-700 p-6 h-full">
       <h3 className="text-xl font-bold text-blue-400 mb-6">{kitLabel}</h3>
 
-      <div className="grid grid-cols-2 gap-6 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg p-8">
+      <div className="grid grid-cols-2 gap-6 bg-gradient-to-br from-slate-500 to-slate-600 rounded-lg p-8">
         {/* FRONT VIEW */}
         <div className="flex flex-col items-center">
           <div className="w-full max-w-lg aspect-square flex items-center justify-center">
